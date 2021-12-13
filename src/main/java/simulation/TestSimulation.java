@@ -7,7 +7,7 @@ public class TestSimulation {
 
 	public static void main(String[] args) {
 		
-		Simulation simulation = (Simulation) SpringContainer.getBean("simulation");
+		Simulation simulation = SpringContainer.getBean(Simulation.class);
 		simulation.buildBank();
 		simulation.simulate();
 		System.out.println(simulation.simulationResults());

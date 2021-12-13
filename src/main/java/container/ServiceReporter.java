@@ -5,13 +5,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 
 import client.AbstractClient;
 
 public class ServiceReporter {
-	private static final String REPORT_FILE = "src/bank3/spring/container/ProblemReport.txt";
-
+	private static final String REPORT_FILE = "src/main/java/";
+	
 	public void nonServedClientEntry(JoinPoint joinPoint) {
+		System.err.println("CLIENT");
 
 		Object[] args = joinPoint.getArgs();
 		AbstractClient client = (AbstractClient) args[0];

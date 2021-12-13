@@ -17,7 +17,7 @@ public class EntryBean {
 	 */
 	private SimulationEntry entry = new SimulationEntry();
 
-	private Simulation simulation =  (Simulation) SpringContainer.getBean("simulation");
+	private Simulation simulation = SpringContainer.getBean(Simulation.class);
 
 	public EntryBean() {
 	}
