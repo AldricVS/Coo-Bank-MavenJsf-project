@@ -3,11 +3,15 @@ package beans;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import container.SpringContainer;
-import simulation.Simulation;
-import simulation.SimulationEntry;
+import business.client.SimulationEntry;
+import business.simulation.Simulation;
+import business.spring.SpringIoC;
 
-
+/**
+ * Simulation bean controller used to collect simulation entry parameters and to start the simulation.
+ * 
+ * The proxy design pattern is used for avoiding redundant code copy.
+ */
 @ManagedBean
 @SessionScoped
 public class EntryBean {
@@ -17,7 +21,7 @@ public class EntryBean {
 	 */
 	private SimulationEntry entry = new SimulationEntry();
 
-	private Simulation simulation = SpringContainer.getBean(Simulation.class);
+	private Simulation simulation = (Simulation) SpringIoC.getBean("simulation");;
 
 	public EntryBean() {
 	}

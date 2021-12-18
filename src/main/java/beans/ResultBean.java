@@ -7,7 +7,8 @@ import javax.faces.bean.RequestScoped;
 
 import org.primefaces.model.chart.PieChartModel;
 
-import simulation.Simulation;
+import business.simulation.Simulation;
+import dao.StatisticPersistence;
 
 /**
  * 
@@ -22,7 +23,7 @@ public class ResultBean {
 
 	@ManagedProperty(value = "#{entryBean}")
 	private EntryBean entryBean;
-
+	
 	public ResultBean() {
 
 	}
@@ -55,22 +56,18 @@ public class ResultBean {
 		this.entryBean = entryBean;
 	}
 
-	/**
-	 * Hard coded fake result temporarily. Waiting for 5-tiers architecture.
-	 * 
-	 * @return fake result
-	 */
 	public int getServedClientCount() {
-		return 95;
+		Simulation simulation = entryBean.getSimulation();
+		int idEntry = simulation.getIdEntry();
+		StatisticPersistence statisticPersistence = simulation.getStatisticPersistence();
+		return statisticPersistence.servedClientCount(idEntry);
 	}
 
-	/**
-	 * Hard coded fake result temporarily. Waiting for 5-tiers architecture.
-	 * 
-	 * @return fake result
-	 */
 	public int getNonServedClientCount() {
-		return 5;
+		Simulation simulation = entryBean.getSimulation();
+		int idEntry = simulation.getIdEntry();
+		StatisticPersistence statisticPersistence = simulation.getStatisticPersistence();
+		return statisticPersistence.nonServedClientCount(idEntry);
 	}
 
 	public double getAverageClientWaitingTime() {
