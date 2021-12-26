@@ -4,13 +4,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
 class ClientData {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	private int arrivalTime;
 	private int serviceStartTime;
