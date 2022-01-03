@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 @Entity
 class ClientData {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue()
 	private int id;
 	private int arrivalTime;
 	private int serviceStartTime;

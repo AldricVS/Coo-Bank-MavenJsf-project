@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 @Entity
 class SimulationData {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue()
 	private int id;
 	private int simulationDuration;
 	private int cashierCount;
